@@ -1,37 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
 
-<!-- this is a comment for human! -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    google.load('visualization', '1', {packages:['corechart']});
+    // google.charts.setOnLoadCallback(drawChart);
+    // var ax = $.csv;
+    // function drawChart(){ 
+    //    $.get("Book1.csv", function(csvString) {
+    //     console.log($.csv);
+    //     console.log(ax);
+       
+    //       var arrayData = ax.toArrays(csvString, {onParseValue: ax.hooks.castToScalar});
+          
+       
+    //       var data = new google.visualization.arrayToDataTable(arrayData);
 
-<html lang="en">
+    //       var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+    //       chart.draw(data, {legend: {position: 'bottom'}, backgroundColor: 'black', is3D: true});
+    //    });
+    // }
+    function initialize() {
+    var opts = {sendMethod: 'auto',
+                csvColumns: ['string', 'number'],
+                csvHasHeader: false
+            };   
+    var query = new google.visualization.Query('https://sqbu-github.cisco.com/CBABU/wxcc/blob/master/Book1.csv', opts);
+    query.send(handleQueryResponse);
+    }
+    function handleQueryResponse(response) {
 
-  <header>
-    <title>Parth Mangal's Portal</title>
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="FaviconIcon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="name" content="Parth Mangal's Portal">
-    <meta name="robots" content="noindex, nofollow">
-  </header>
+        if (response.isError()) {
+            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+            return;
+        }
 
-  <body>
-    <img src="images/banner.jpg" width="75%" alt="banner">
-    <h1>Parth Mangal's Portal</title>
-    <h2>About Me</h2>
-    <p> I am a mobile app and website developer in India.</p>
-    <p> I am a Pre-Final year EEE undergrad at BITS Pilani.</p>
+        var data = response.getDataTable();
 
-    <h2>Credentials and Portfolio</h2>
+        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+        chart.draw(data);
+    }
 
-    <p><a href="resume.html">My Resume</a> | <a href="https://github.com/parth0001" target="_blank">My GitHub</a></p>
-    <h2>Contact</h2>
+    </script>
 
-    <p>Email:<a href="mailto:prthmangal123@gmail.com" target="_blank">prthmangal123@gmail.com</a></p>
-  </body>
-
-  <footer>
-    <hr>
-    <code>Copyright (c) 2020 Parth Mangal</code>
-  </footer>
-
-</html>
+</head>
+<body>
