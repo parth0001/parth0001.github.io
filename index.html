@@ -5,8 +5,8 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
-    google.load('visualization', '1', {packages:['corechart']});
-    // google.charts.setOnLoadCallback(drawChart);
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(initialize);
     // var ax = $.csv;
     // function drawChart(){ 
     //    $.get("Book1.csv", function(csvString) {
@@ -27,7 +27,7 @@
                 csvColumns: ['string', 'number'],
                 csvHasHeader: false
             };   
-    var query = new google.visualization.Query('https://github.com/parth0001/parth0001.github.io/blob/master/Book1.csv', opts);
+    var query = new google.visualization.Query('Book1.csv', opts);
     query.send(handleQueryResponse);
     }
     function handleQueryResponse(response) {
@@ -40,7 +40,7 @@
         var data = response.getDataTable();
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
-        chart.draw(data);
+        chart.draw(data,null);
     }
 
     </script>
