@@ -1,65 +1,60 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
+<!doctype html>
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(initialize);
-    // var ax = $.csv;
-    // function drawChart(){ 
-    //    $.get("Book1.csv", function(csvString) {
-    //     console.log($.csv);
-    //     console.log(ax);
-       
-    //       var arrayData = ax.toArrays(csvString, {onParseValue: ax.hooks.castToScalar});
-          
-       
-    //       var data = new google.visualization.arrayToDataTable(arrayData);
+<!-- this is a comment for human! -->
 
-    //       var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
-    //       chart.draw(data, {legend: {position: 'bottom'}, backgroundColor: 'black', is3D: true});
-    //    });
-    // }
-    function initialize() {
-    var opts = {sendMethod: 'auto',
-                csvColumns: ['string', 'number'],
-                csvHasHeader: false
-            };   
-    var query = new google.visualization.Query('Book1.csv', opts);
-    query.send(handleQueryResponse);
-    }
-    function handleQueryResponse(response) {
+<html lang="en">
 
-        if (response.isError()) {
-            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-            return;
-        }
+  <header>
+    <title>Parth Mangal's Resume</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="FaviconIcon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="name" content="Parth Mangal's Portal">
+    <meta name="robots" content="noindex, nofollow">
+  </header>
 
-        var data = response.getDataTable();
+  <body>
+    <hr>
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
-        chart.draw(data,null);
-    }
+    <img src="images/headshot.jpg" alt="Parth Mangal's headshot" width="20%">
 
-    </script>
+    <h1>Parth Mangal</h1>
+    <h4>UI/UX, Website Software Engineer</h4>
 
-</head>
-<body>
-  
- <table class="donut-table">
-        <thead>
-        <th></th><th>Core</th>
-        <tbody>
-        <tr><td style="width: 15%; text-align: center;">Services Integrated </br> with CI/CD pipeline</td>
-        <td style="width: 20%;"><div id="piechart1" style="width: 100%; height:300px"></div></td>
-        <!-- <td style="width: 20%;"><div id="piechart2" style="width: 100%; height:300px"></div></td>
-        <td style="width: 20%;"><div id="piechart3" style="width: 100%; height:300px"></div></td>
-        <td style="width: 20%;"><div id="piechart4" style="width: 100%; height:300px"></div></td> -->
-        </tr>
-        </tbody>
-      </table>
-</body>
+    <p>Email: <a href="mailto:prthmangal123@gmail.com" target="_blank">prthmangal123@gmail.com</a></p>
+    <!-- don't post physical address, personal phone number or other personal information on the web! -->
+
+    <h2>Portfolio</h2>
+      <h3>GitHub: <a href="https://github.com/parth0001" target="_blank">https://github.com/parth0001</a></h3>
+
+    <h2>Education</h2>
+
+    <h3>BITS Pilani, Goa</h3>
+    <h4>B.E. Electrical & Electronics, CGPA 7.98</h4>
+
+    <h2>Professional Experiences</h2>
+
+    <h3>Data Analyst/Web Development Intern</h3>
+    <h4>NTCL Pvt. Ltd., Mumbai</h4>
+    <h5>May 2019-July 2019</h5>
+      <ul>
+        <li>DESIGNED AND DEVELOPED A DATA DRIVEN BUSINESS INTELLIGENCE TOOL</li>
+      </ul>
+
+    <h3>Chief Coordinator</h3>
+    <h4>The Department of Photography</h4>
+    <h5>August 2019-April 2020</h5>
+      <ul>
+        <li>Led a team of 120 members which also included unifying the working of 6 other coordinators and about 46 core-members throughout the year.</li>
+        <li>Headed the team which set up the Annual World Photography Day Exhibition - "Pixels" in the campus, which had an international appeal and received entries from many participants globally.</li>
+      </ul>
+  </body>
+
+  <footer>
+  <hr>
+  <p><a href="index.html">Back to my portal</a><p>
+  </footer>
+
 </html>
-
